@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,900|Fira+Sans:400,700&display=swap");
+
+// Colors
+@light_gray: rgb(155, 155, 155);
+@gray: rgb(120, 120, 120);
+@darker_gray: rgb(51, 51, 51);
+@dark_gray: rgb(70, 70, 70);
+
+@blue: rgb(41, 41, 255);
+@light_blue: rgb(100, 181, 251);
+
+@red: rgb(255, 41, 41);
+@light_red: lighten(@red, 20%);
+
+@pink: #FA73AE;
+@light_pink: lighten(@pink, 10%);
+
+// Font
+@largest_font: 125px;
+@larger_font: 42pt;
+@large_font: 28pt;
+@medium_font: 18.5pt;
+@small_font: 15px;
+
+@body_font: "Fira Sans";
+@header_font: "Roboto";
+
+@h1_line_height: 50px;
+@h2_line_height: 40px;
+@h3_line_height: 30px;
+
+@body_slant: -10deg;
+@header_slant: -10deg;
+
+// Border
+@radius: 1px;
+
+// Assignment
+
+.shadow () {
+
+	box-shadow: -10px 10px @dark_gray;
+
+}
+
+.italicize_body () {
+
+	transform: skew(@body_slant);
+
+}
+
+.italicize_header () {
+
+	transform: skew(@header_slant);
+
+}
+
+html, body {
+
+	margin: 0;
+	padding: 0;
+
+	width: 100%;
+	height: 100%;
+
+}
+
+* {
+
+	position: relative;
+
+	box-sizing: border-box;
+	// vertical-align: middle;
+
+}
+
+@import "layout.less";
+@import "components.less";

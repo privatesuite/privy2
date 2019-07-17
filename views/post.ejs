@@ -1,0 +1,73 @@
+<%- await render("include/menu.ejs") %>
+
+<% var post = await fetchPost(currentRoute().split("/")[2]) %>
+<% var tags = post.category.split(",").map(_ => _.trim()) %>
+
+<% var authors = post.authors.split(",").map(_ => _.trim()) %>
+<% var photographers = (post.photographers || "").split(",").map(_ => _.trim()) %>
+
+<div class="app">
+
+	<div class="section">
+
+		<p style="margin: 0;"><%- capitalize(tags[0]) %> &#187; <%- post.title %></p>
+
+		<div class="hr"></div>
+
+		<h3 class="uppercase_text"><%- tags[0] %></h3>
+		<h1 class="regular_text"><%- post.title %></h1>
+		<h1 class="sub regular_text"><%- post.subtitle || "" %></h1>
+
+		<div class="authors">
+
+			<div>
+
+				<span>Writers</span>
+				<div>
+
+					<% for (const author of authors) { %>
+
+						<span><%- author %></span>
+
+					<% } %>
+
+				</div>
+
+			</div>
+
+			<% if (photographers.length !== 0) { %>
+
+				<div>
+
+					<span>Photographers</span>
+					<div>
+	
+						<% for (const photographer of photographers) { %>
+	
+							<span><%- photographer %></span>
+	
+						<% } %>
+	
+					</div>
+	
+				</div>
+
+			<% } %>
+
+		</div>
+		
+		<%- post.content %>
+
+		<!-- <div class="hr bold"></div> -->
+
+		<div class="writer_card">
+
+
+
+		</div>
+
+	</div>
+
+</div>
+
+<%- await render("include/footer.ejs") %>

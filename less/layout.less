@@ -1,0 +1,280 @@
+@panel_height: 500px;
+@panel_padding: 25px;
+
+.app, .menu, footer, .app_component {
+
+	margin-left: 25px;
+	margin-right: 25px;
+
+}
+
+.menu {
+
+	margin-bottom: 40px;
+
+	border-bottom: 5.5px solid @dark_gray;
+
+	padding: @panel_padding;
+	padding-bottom: 10px;
+
+	&>img {
+
+		width: 300px;
+
+	}
+
+	&>.items {
+
+		display: inline-block;
+
+		&>* {
+
+			margin-left: 20px;
+
+			color: @dark_gray;
+
+		}
+		
+	}
+
+}
+
+footer {
+
+	margin-bottom: 40px;
+
+	&>img {
+
+		width: 130px;
+
+		vertical-align: top;
+
+	}
+
+	&>.items {
+
+		display: inline-block;
+
+		// margin-left: 20px;
+
+		&>* {
+
+			display: inline-block;
+
+			margin-left: 60px;
+
+			&>* {
+
+				display: block;
+
+				transform: skew(-10deg);
+
+				margin-bottom: 5px;
+
+				color: @dark_gray;
+				font-style: normal;
+
+			}
+
+		}
+
+	}
+
+	&>.social {
+
+		&>* {
+
+			filter: grayscale(100%);
+
+			&:hover {
+
+				filter: grayscale(0%) !important;
+
+			}
+
+			cursor: pointer;
+			transition: 0.2s all;
+
+		}
+
+		// &:hover {
+
+		// 	&>* {
+
+		// 		filter: grayscale(70%);
+
+		// 	}
+
+		// }
+
+	}
+
+}
+
+// General Use
+
+.section {
+
+	margin-left: 25px;
+	margin-right: 25px;
+	margin-bottom: 40px;
+
+}
+
+.panel {
+
+	border: 1.25px solid @gray;
+	border-radius: @radius;
+	
+	min-width: 100px;
+	min-height: @panel_height;
+
+	padding: @panel_padding;
+
+	&.half {
+
+		min-height: @panel_height / 2;
+
+	}
+
+	.shadow();
+
+}
+
+.split {
+
+	display: flex;
+
+	&>*:first-child {
+
+		display: inline-block;
+
+		margin-right: 40px;
+
+		width: 50%;
+
+	}
+
+	&>*:last-child {
+
+		display: inline-block;
+
+		width: 50%;
+
+	}
+
+}
+
+// Details
+
+.top {
+
+	position: absolute;
+
+	padding-top: inherit;
+
+	top: 0px;
+
+}
+
+.left {
+
+	position: absolute;
+
+	padding-left: inherit;
+
+	left: 0px;
+
+}
+
+.right {
+
+	position: absolute;
+
+	padding-right: inherit;
+
+	right: 0px;
+
+}
+
+.bottom {
+
+	position: absolute;
+
+	padding-bottom: inherit;
+
+	bottom: 0px;
+
+}
+
+.vmiddle {
+
+	position: absolute;
+
+	top: 50%;
+	transform: translateY(-50%);
+
+}
+
+.vmiddle_bottom {
+
+	position: absolute;
+
+	top: 67%;
+	transform: translateY(-50%);
+
+}
+
+.hmiddle {
+
+	position: absolute;
+
+	left: 50%;
+	transform: translateX(-50%);
+
+}
+
+.middle {
+
+	position: absolute;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+}
+
+// One Time
+
+.featured {
+
+	&>.description {
+
+		h1 {
+
+			margin-top: 40px;
+			margin-bottom: 30px;
+
+		}
+
+	}
+
+	&>*:first-child {
+
+		display: inline-block;
+
+		margin-right: 40px;
+
+		width: 66%;
+
+	}
+
+	&>*:last-child {
+
+		display: inline-block;
+
+		width: 33%;
+
+	}
+
+}

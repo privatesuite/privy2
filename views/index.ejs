@@ -1,0 +1,93 @@
+<%- await render("include/menu.ejs") %>
+
+<% var featured = await fetchElement("featured"); %>
+
+<div class="app">
+
+	<div class="section split featured">
+		
+		<div class="panel" style="background-image: url('<%- file(featured.image) %>'); background-size: cover;">
+
+			
+
+		</div>
+
+		<div class="description">
+
+			<h1><%- featured.featured_title %></h1>
+
+			<h3><%- featured.subtitle %></h3>
+
+			<p><%- featured.description %></p>
+			
+			<div class="hr"></div>
+
+			<a class="right"><%- featured.call_to_action %> &#187;</a>
+
+		</div>
+
+	</div>
+
+	<div class="section split">
+		
+		<div class="panel half">
+
+			<% var box1 = await fetchElement("homepage box 1") %>
+
+			<h2><%- box1.box_title %></h2>
+
+			<%- box1.content %>
+
+			<a href="<%- box1.link %>" class="right bottom"><%- box1.call_to_action %> &#187;</a>
+
+		</div>
+
+		<div class="panel half">
+
+			<% var box2 = await fetchElement("homepage box 2") %>
+
+			<h2><%- box2.box_title %></h2>
+
+			<%- box2.content %>
+
+			<a href="<%- box2.link %>" class="right bottom"><%- box2.call_to_action %> &#187;</a>
+
+		</div>
+
+	</div>
+
+	<div class="hr"></div>
+
+	<div class="section panel slideshow">
+		
+		<div>
+
+			<h1 class="middle">Slide One</h1>
+
+		</div>
+
+		<div class="current_slide">
+
+			<h1 class="middle">Slide Two</h1>
+
+		</div>
+
+		<div>
+
+			<h1 class="middle">Slide Three</h1>
+
+		</div>
+
+		<div class="dots hmiddle bottom">
+
+			<div></div>
+			<div class="selected"></div>
+			<div></div>
+
+		</div>
+	
+	</div>
+
+</div>
+
+<%- await render("include/footer.ejs") %>
