@@ -10,11 +10,12 @@
 
 .menu {
 
-	margin-bottom: 40px;
+	margin-bottom: 10px;
 
+	border-radius: @radius;
 	border-bottom: 5.5px solid @dark_gray;
 
-	padding: @panel_padding;
+	padding: @panel_padding 0;
 	padding-bottom: 10px;
 
 	&>img {
@@ -126,8 +127,12 @@ footer {
 	border: 1.25px solid @gray;
 	border-radius: @radius;
 	
-	min-width: 100px;
-	min-height: @panel_height;
+	&:not(.flexible) {
+
+		min-width: 100px;
+		min-height: @panel_height;
+
+	}
 
 	padding: @panel_padding;
 
@@ -274,6 +279,16 @@ footer {
 		display: inline-block;
 
 		width: 33%;
+
+	}
+
+}
+
+.comments {
+
+	&>* {
+
+		margin-bottom: 40px;
 
 	}
 

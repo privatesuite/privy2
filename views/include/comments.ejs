@@ -1,0 +1,37 @@
+<div class="comment_area">
+
+	<h2>Comments</h2> <br>
+
+	<form action="<%- `${API_ROOT}/comments/add?to=${encodeURIComponent(location.href)}` %>" method="POST">
+
+		<input type="hidden" name="element" value="<%- post._parent.id %>">
+
+		<input type="text" name="title" placeholder="Title"> <br>
+		<input type="text" name="author" placeholder="Author"> <br>
+		<textarea name="content" placeholder="Content"></textarea> <br> <br>
+
+		<input type="submit" value="Comment"> <br><br>
+
+	</form>
+	
+	<div class="hr"></div>
+
+	<div class="comments">
+
+		<% for (comment of (await comments(post._parent.id))) { %>
+
+			<div class="panel flexible">
+
+				<h3><%= comment.fields.title %></h3>
+
+				<p><%= comment.fields.content %></p>
+
+				<span><strong><%= new Date(comment.fields.date).toUTCString() %> | <%= comment.fields.author %></strong></span>
+
+			</div>
+
+		<% } %>
+
+	</div>
+
+</div>

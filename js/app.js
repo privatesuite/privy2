@@ -34,7 +34,7 @@ const cache = {}
 
 function slugify (slug) {
 
-	return encodeURIComponent(slug.replace(/ /g, "_").toLowerCase());
+	return slug.replace(/ /g, "_").toLowerCase();
 
 }
 
@@ -44,6 +44,30 @@ function deslugify (slug) {
 
 }
 
+// Comments
+
+// const comments = {
+
+// 	sendComment (data) {
+
+// 		fetch("https://localhost/api/comments/add", {
+
+// 			method: "post",
+
+// 			headers: {
+
+// 				"Content-Type": "application/json"
+
+// 			},
+
+// 			body: JSON.stringify(data)
+
+// 		});
+
+// 	}
+
+// } 
+
 async function render (view, data) {
 
 	data = {
@@ -52,6 +76,7 @@ async function render (view, data) {
 		render,
 
 		currentRoute,
+		API_ROOT,
 		
 		capitalize (text) {
 
@@ -59,10 +84,18 @@ async function render (view, data) {
 
 		},
 
+		async comments (element) {
+		
+			return (await (await fetch(`${API_ROOT}/elements`)).json()).filter(_ => _.template.indexOf("comment") !== -1 && _.fields.element === element);
+
+		},
+
 		async fetchElement (title) {
 
 			var json = await (await fetch(`${API_ROOT}/elements`)).json();
 			var element = json.find(_ => _.fields.title.toLowerCase() === title);
+
+			element.fields._parent = element;
 
 			return element.fields;
 
@@ -72,6 +105,8 @@ async function render (view, data) {
 
 			var json = await (await fetch(`${API_ROOT}/elements`)).json();
 			var element = json.find(_ => _.fields.title.toLowerCase() === deslugify(slug));
+
+			element.fields._parent = element;
 
 			return element.fields;
 

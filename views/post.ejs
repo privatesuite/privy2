@@ -8,14 +8,14 @@
 
 <div class="app">
 
+	<span class="breadcrum"><%- capitalize(tags[0]) %> &#187; <%- post.title %></span>
+
+	<div class="hr"></div>
+	
 	<div class="section">
-
-		<p style="margin: 0;"><%- capitalize(tags[0]) %> &#187; <%- post.title %></p>
-
-		<div class="hr"></div>
-
-		<h3 class="uppercase_text"><%- tags[0] %></h3>
-		<h1 class="regular_text"><%- post.title %></h1>
+		
+		<h3 class="uppercase_text" style="margin-top: 25px;"><%- tags[0] %></h3>
+		<h1 class="regular_text" style="margin-top: 15px; margin-bottom: 5px;"><%- post.title %></h1>
 		<h1 class="sub regular_text"><%- post.subtitle || "" %></h1>
 
 		<div class="authors">
@@ -35,7 +35,7 @@
 
 			</div>
 
-			<% if (photographers.length !== 0) { %>
+			<% if (photographers.length !== 0 && photographers[0]) { %>
 
 				<div>
 
@@ -58,13 +58,33 @@
 		
 		<%- post.content %>
 
-		<!-- <div class="hr bold"></div> -->
+		<div class="hr"></div>
 
-		<div class="writer_card">
+		<div class="authors_cards">
 
+			<% for (const author of authors) { %>
 
+				<div>
+					
+					<img>
+
+					<div>
+
+						<span class="name"><%- author %></span>
+
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vitae, deleniti, laboriosam iste nulla temporibus nihil iusto hic laborum facere assumenda laudantium ipsum quam beatae eveniet repellat ab quaerat magnam?</p>
+
+					</div>
+
+				</div>
+
+			<% } %>
 
 		</div>
+
+		<div class="hr"></div>
+
+		<%- await render("include/comments.ejs", {post}) %>
 
 	</div>
 
