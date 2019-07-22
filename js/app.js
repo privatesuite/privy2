@@ -84,9 +84,24 @@ async function render (view, data) {
 
 		},
 
+		escapeHTML (string) {
+			
+			let pre = document.createElement("pre");
+			let text = document.createTextNode(string);
+			pre.appendChild(text);
+			return pre.innerHTML;
+		
+		},
+
 		async comments (element) {
 		
 			return (await (await fetch(`${API_ROOT}/elements`)).json()).filter(_ => _.template.indexOf("comment") !== -1 && _.fields.element === element);
+
+		},
+
+		async profile (title) {
+
+			return ((await (await fetch(`${API_ROOT}/elements`)).json()).find(_ => _.template === "p3ebkzveeof" && _.fields.title === title) || {fields: {}}).fields;
 
 		},
 

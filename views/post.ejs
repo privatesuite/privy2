@@ -64,15 +64,17 @@
 
 			<% for (const author of authors) { %>
 
+				<% let _profile = await profile(author); %>
+
 				<div>
 					
-					<img>
+					<img src="<%- _profile.image ? file(_profile.image) : "https://icon2.kisspng.com/20180411/ksq/kisspng-vaporwave-statue-aesthetics-seapunk-art-statue-of-liberty-5acdd5c454c0c2.4795892315234390443472.jpg" %>">
 
 					<div>
 
 						<span class="name"><%- author %></span>
 
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vitae, deleniti, laboriosam iste nulla temporibus nihil iusto hic laborum facere assumenda laudantium ipsum quam beatae eveniet repellat ab quaerat magnam?</p>
+						<p><%- _profile.description || "<i>No description available at this time</i>" %></p>
 
 					</div>
 

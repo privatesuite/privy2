@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,900|Fira+Sans:400,700&display=swap");
-/* line 59, C:\Users\augus\Desktop\Programming\privy\privy2\less\app.less */
+/* line 62, C:\Users\augus\Desktop\Programming\privy\privy2\less\app.less */
 html,
 body {
   margin: 0;
@@ -7,7 +7,7 @@ body {
   width: 100%;
   height: 100%;
 }
-/* line 69, C:\Users\augus\Desktop\Programming\privy\privy2\less\app.less */
+/* line 72, C:\Users\augus\Desktop\Programming\privy\privy2\less\app.less */
 * {
   position: relative;
   box-sizing: border-box;
@@ -184,7 +184,11 @@ footer > .social > *:hover {
 .comments > * {
   margin-bottom: 40px;
 }
-/* line 3, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 1, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+* {
+  outline: none !important;
+}
+/* line 9, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 h1 {
   margin: 0;
   margin-top: 20px;
@@ -195,18 +199,18 @@ h1 {
   text-transform: uppercase;
   line-height: 50px;
 }
-/* line 17, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 23, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 h1.sub {
   color: #787878;
   font-size: 21pt;
   font-weight: 400;
   line-height: 30px;
 }
-/* line 26, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 32, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 h1.regular_text {
   text-transform: none;
 }
-/* line 34, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 40, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 h2 {
   margin: 0;
   color: #333333;
@@ -216,7 +220,7 @@ h2 {
   text-transform: uppercase;
   line-height: 40px;
 }
-/* line 49, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 55, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 h3 {
   margin: 0;
   color: #787878;
@@ -225,11 +229,11 @@ h3 {
   font-family: "Roboto";
   line-height: 30px;
 }
-/* line 61, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 67, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 h3.uppercase_text {
   text-transform: uppercase;
 }
-/* line 69, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 75, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 li,
 p,
 span {
@@ -238,7 +242,7 @@ span {
   font-family: "Fira Sans";
   line-height: 30px;
 }
-/* line 79, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 85, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 a {
   color: #64b5fb;
   font-size: 15px;
@@ -249,27 +253,65 @@ a {
   cursor: pointer;
 }
 /* line 99, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+input[type="text"],
+textarea {
+  margin-bottom: 10px;
+  border: 1px solid #787878;
+  border-radius: 1px;
+  padding: 10px 17px;
+  font-family: "Fira Sans";
+  background: transparent;
+  transition: 0.2s all;
+}
+/* line 112, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+input[type="text"]:hover,
+textarea:hover {
+  border-color: #464646;
+  border-width: 2px;
+}
+/* line 123, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+button,
+.btn,
+input[type="submit"],
+input[type="button"] {
+  border: 1px solid #787878;
+  border-radius: 1px;
+  padding: 10px 17px;
+  font-family: "Fira Sans";
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+/* line 134, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+button:hover,
+.btn:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  border-color: #464646;
+  border-width: 2px;
+}
+/* line 146, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .split {
   display: -ms-flexbox;
   display: flex;
 }
-/* line 103, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 150, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .split > *:first-child {
   display: inline-block;
   margin-right: 40px;
   width: 50%;
 }
-/* line 113, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 160, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .split > *:last-child {
   display: inline-block;
   width: 50%;
 }
-/* line 123, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 170, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .authors {
   margin-top: 20px;
   margin-bottom: 48px;
 }
-/* line 128, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 175, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .authors > div {
   display: inline-block;
   margin-right: 20px;
@@ -279,7 +321,7 @@ a {
   vertical-align: top;
   font-family: "Fira Sans";
 }
-/* line 143, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 190, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .authors > div > *:first-child {
   display: inline-block;
   margin-right: 10px;
@@ -289,23 +331,23 @@ a {
   line-height: 25px;
   transform: skew(-10deg);
 }
-/* line 159, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 206, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .authors > div > *:last-child {
   display: inline-block;
 }
-/* line 163, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 210, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .authors > div > *:last-child > * {
   display: block;
   color: #464646;
   line-height: 25px;
 }
-/* line 180, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 227, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .authors_cards > div {
   display: inline-block;
   margin-bottom: 40px;
   width: 49%;
 }
-/* line 188, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 235, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .authors_cards > div > img {
   display: inline-block;
   border: 1px solid #464646;
@@ -314,7 +356,7 @@ a {
   width: 100px;
   height: 100px;
 }
-/* line 202, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 249, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .authors_cards > div > div {
   display: inline-block;
   margin-left: 20px;
@@ -325,12 +367,12 @@ a {
   width: 75%;
   height: 100%;
 }
-/* line 218, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 265, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .authors_cards > div > div > .name {
   color: #464646;
   font-weight: 900;
 }
-/* line 233, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 280, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .hr {
   display: inline-block;
   margin-bottom: 20px;
@@ -339,29 +381,29 @@ a {
   height: 1.25px;
   background-color: #464646;
 }
-/* line 246, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 293, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .hr.bold {
   height: 5.5px;
 }
-/* line 254, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 301, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .marked {
   display: inline-block;
   padding: 2px 5px;
   background-color: #fca4ca;
 }
-/* line 264, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 311, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .breadcrum {
   display: block;
   margin-bottom: 10px;
   color: #464646;
   font-weight: 900;
 }
-/* line 277, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 324, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .slideshow {
   display: -ms-flexbox;
   display: flex;
 }
-/* line 281, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 328, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .slideshow > div:not(.dots) {
   position: absolute;
   top: 0;
@@ -372,12 +414,12 @@ a {
   height: 100%;
   transition: 0.2s all;
 }
-/* line 294, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 341, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .slideshow > div:not(.dots).current_slide {
   opacity: 1;
   pointer-events: all;
 }
-/* line 311, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 358, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .slideshow > .dots > * {
   display: inline-block;
   border: 1px solid #787878;
@@ -387,11 +429,11 @@ a {
   cursor: pointer;
   transition: 0.2s all;
 }
-/* line 321, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 368, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .slideshow > .dots > *:hover {
   background-color: #9b9b9b;
 }
-/* line 327, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
+/* line 374, C:\Users\augus\Desktop\Programming\privy\privy2\less\components.less */
 .slideshow > .dots > *.selected {
   background-color: #787878;
 }
