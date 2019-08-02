@@ -24,10 +24,17 @@ const routes = {
 
 		view: "post.ejs"
 
+	},
+
+	"/section/*": {
+
+		view: "section.ejs"
+
 	}
 
 }
 
+let elements;
 const cache = {}
 
 // View
@@ -44,30 +51,6 @@ function deslugify (slug) {
 
 }
 
-// Comments
-
-// const comments = {
-
-// 	sendComment (data) {
-
-// 		fetch("https://localhost/api/comments/add", {
-
-// 			method: "post",
-
-// 			headers: {
-
-// 				"Content-Type": "application/json"
-
-// 			},
-
-// 			body: JSON.stringify(data)
-
-// 		});
-
-// 	}
-
-// } 
-
 async function render (view, data) {
 
 	data = {
@@ -77,7 +60,21 @@ async function render (view, data) {
 
 		currentRoute,
 		API_ROOT,
+
+		slugify,
 		
+		default_image: "https://icon2.kisspng.com/20180411/ksq/kisspng-vaporwave-statue-aesthetics-seapunk-art-statue-of-liberty-5acdd5c454c0c2.4795892315234390443472.jpg",
+
+		trim (text, max) {
+
+			if (text.length > max) {
+		
+				return text.slice(0, max - 3) + "...";
+				
+			} else return text;
+		
+		},		
+
 		capitalize (text) {
 
 			return text[0].toUpperCase() + text.slice(1);
@@ -93,6 +90,12 @@ async function render (view, data) {
 		
 		},
 
+		removeHTMLTags (string) {
+			
+			return string.replace(/<\/?[^>]+(>|$)/g, "");
+
+		},
+
 		async comments (element) {
 		
 			return (await (await fetch(`${API_ROOT}/elements`)).json()).filter(_ => _.template.indexOf("comment") !== -1 && _.fields.element === element);
@@ -102,6 +105,23 @@ async function render (view, data) {
 		async profile (title) {
 
 			return ((await (await fetch(`${API_ROOT}/elements`)).json()).find(_ => _.template === "p3ebkzveeof" && _.fields.title === title) || {fields: {}}).fields;
+
+		},
+
+		async allPosts () {
+
+			return ((await (await fetch(`${API_ROOT}/elements`)).json())).filter(_ => _.template === "yblghp0xq2");
+
+		},
+
+		async postsFromSection (section) {
+
+			return (await this.allPosts()).filter(_ => _.fields.category.split(",").map(_ => _.trim())[0] === section).map(_ => {
+
+				_.fields._parent = _;
+				return _.fields;
+
+			});
 
 		},
 

@@ -8,13 +8,13 @@
 
 <div class="app">
 
-	<span class="breadcrum"><%- capitalize(tags[0]) %> &#187; <%- post.title %></span>
+	<span class="breadcrum"><%- capitalize(post.issue || "Unknown Issue") %> &#187; <%- capitalize(tags[0]) %> &#187; <%- post.title %></span>
 
 	<div class="hr"></div>
 	
 	<div class="section">
 		
-		<h3 class="uppercase_text" style="margin-top: 25px;"><%- tags[0] %></h3>
+		<a href="#/section/<%- tags[0] %>"><h3 class="uppercase_text" style="margin-top: 25px;"><%- tags[0] %></h3></a>
 		<h1 class="regular_text" style="margin-top: 15px; margin-bottom: 5px;"><%- post.title %></h1>
 		<h1 class="sub regular_text"><%- post.subtitle || "" %></h1>
 
@@ -68,7 +68,7 @@
 
 				<div>
 					
-					<img src="<%- _profile.image ? file(_profile.image) : "https://icon2.kisspng.com/20180411/ksq/kisspng-vaporwave-statue-aesthetics-seapunk-art-statue-of-liberty-5acdd5c454c0c2.4795892315234390443472.jpg" %>">
+					<img src="<%- _profile.image ? file(_profile.image) : default_image %>">
 
 					<div>
 
