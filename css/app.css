@@ -26,6 +26,11 @@
   font-display: swap;
   src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmYUtfBBc9.ttf) format('truetype');
 }
+.issuuembed {
+  margin-top: 20px;
+  width: auto !important;
+  height: 500px !important;
+}
 html,
 body {
   margin: 0;
@@ -53,14 +58,53 @@ footer,
   padding-bottom: 10px;
 }
 .menu > img {
+  opacity: 1;
+  pointer-events: all;
   width: 300px;
+  transition: 0.2s all;
 }
 .menu > .items {
   display: inline-block;
+  opacity: 1;
+  transition: 0.2s all;
 }
 .menu > .items > * {
   margin-left: 20px;
   color: #464646;
+}
+.menu > .opener {
+  display: inline-block;
+  opacity: 0;
+  pointer-events: none;
+  font-size: 30px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+@media only screen and (max-width: 750px) {
+  .menu > img {
+    width: 150px;
+  }
+  .menu > .items {
+    left: 0 !important;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .menu > .items > * {
+    margin-left: 5px;
+  }
+  .menu > .opener {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .menu.shown > img {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .menu.shown > .items {
+    opacity: 1;
+    pointer-events: all;
+  }
 }
 footer {
   margin-bottom: 40px;
@@ -82,6 +126,11 @@ footer > .items > * > * {
   margin-bottom: 5px;
   color: #464646;
   font-style: normal;
+}
+@media only screen and (max-width: 750px) {
+  footer > .items {
+    margin-top: 20px;
+  }
 }
 footer > .social > * {
   filter: grayscale(100%);
@@ -120,6 +169,19 @@ footer > .social > *:hover {
 .split > *:last-child {
   display: inline-block;
   width: 50%;
+}
+@media only screen and (max-width: 750px) {
+  .split {
+    display: block !important;
+  }
+  .split > * {
+    display: block !important;
+    margin-right: 0px !important;
+    width: 100% !important;
+  }
+  .split > *:first-child {
+    margin-bottom: 50px;
+  }
 }
 .top {
   position: absolute;
@@ -175,6 +237,11 @@ footer > .social > *:hover {
   display: inline-block;
   width: 33%;
 }
+@media only screen and (max-width: 750px) {
+  .featured {
+    margin-bottom: 60px;
+  }
+}
 .comments > * {
   margin-bottom: 40px;
 }
@@ -198,6 +265,25 @@ footer > .social > *:hover {
 .posts > * > div > a {
   display: block;
 }
+@media only screen and (max-width: 750px) {
+  .posts > * > * {
+    display: block;
+  }
+  .posts > * > div {
+    margin-top: 40px;
+    width: 100%;
+  }
+}
+.sections > *,
+.issues > * {
+  display: block;
+  margin-top: 20px;
+  min-height: auto !important;
+}
+.sections > * > h2,
+.issues > * > h2 {
+  margin: 0;
+}
 * {
   outline: none !important;
 }
@@ -206,7 +292,7 @@ h1 {
   margin-top: 20px;
   color: #333333;
   font-size: 42pt;
-  transform: skew(-10deg);
+  font-style: italic;
   font-family: "Roboto";
   text-transform: uppercase;
   line-height: 50px;
@@ -223,11 +309,16 @@ h1.dark {
 h1.regular_text {
   text-transform: none;
 }
+@media only screen and (max-width: 750px) {
+  h1 {
+    font-size: 33.6pt;
+  }
+}
 h2 {
   margin: 0;
   color: #333333;
   font-size: 28pt;
-  transform: skew(-10deg);
+  font-style: italic;
   font-family: "Roboto";
   text-transform: uppercase;
   line-height: 40px;
@@ -239,7 +330,7 @@ h3 {
   margin: 0;
   color: #787878;
   font-size: 18.5pt;
-  transform: skew(-10deg);
+  font-style: italic;
   font-family: "Roboto";
   line-height: 30px;
 }
@@ -260,7 +351,7 @@ span {
 a {
   color: #64b5fb;
   font-size: 15px;
-  transform: skew(-10deg);
+  font-style: italic;
   font-family: "Fira Sans";
   font-weight: bold;
   text-decoration: none;
@@ -300,18 +391,6 @@ input[type="button"]:hover {
   border-color: #464646;
   border-width: 2px;
 }
-.split {
-  display: flex;
-}
-.split > *:first-child {
-  display: inline-block;
-  margin-right: 40px;
-  width: 50%;
-}
-.split > *:last-child {
-  display: inline-block;
-  width: 50%;
-}
 .authors {
   margin-top: 20px;
   margin-bottom: 48px;
@@ -332,7 +411,7 @@ input[type="button"]:hover {
   color: #787878;
   font-weight: 900;
   line-height: 25px;
-  transform: skew(-10deg);
+  font-style: italic;
 }
 .authors > div > *:last-child {
   display: inline-block;
@@ -370,12 +449,13 @@ input[type="button"]:hover {
   font-weight: 900;
 }
 .hr {
-  display: inline-block;
+  display: block;
   margin-bottom: 20px;
   border-radius: 1px;
   width: 100%;
   height: 1.25px;
   background-color: #464646;
+  overflow: auto;
 }
 .hr.bold {
   height: 5.5px;

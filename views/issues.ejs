@@ -1,0 +1,39 @@
+<%- await render("include/menu.ejs") %>
+
+<%
+
+function getIssueNumber (title) {return parseInt(title.match(/\d+/)[0]);}
+
+const _issues = (await issues()).sort((b, a) => getIssueNumber(a.title) - getIssueNumber(b.title));;
+
+let i = _issues.length;
+
+%>
+
+<div class="app">
+
+	<div class="section">
+
+		<h1>Issues</h1>
+
+		<div class="issues">
+
+			<% for (const issue of _issues) { %>
+
+				<a href="#/issue/<%- i %>" class="panel">
+					
+					<h2><%- issue.title %></h2>
+	
+				</a>
+	
+				<% i-- %>
+
+			<% } %>
+
+		</div>
+
+	</div>
+
+</div>
+
+<%- await render("include/footer.ejs") %>

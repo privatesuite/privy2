@@ -1,0 +1,17 @@
+<%- await render("include/menu.ejs") %>
+
+<% const _issue = await issue(currentRoute().split("/")[2]) %>
+
+<div class="app">
+
+	<div class="section">
+
+		<h1><%- _issue.title %></h1>
+
+		<%- _issue.content %>
+
+	</div>
+
+</div>
+
+<%- await render("include/footer.ejs") %>

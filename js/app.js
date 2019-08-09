@@ -14,6 +14,18 @@ const routes = {
 
 	},
 
+	"/contact": {
+
+		view: "contact.ejs"
+
+	},
+
+	"/thanks": {
+
+		view: "thanks.ejs"
+
+	},
+
 	"/privacy": {
 
 		view: "privacy.ejs"
@@ -26,9 +38,27 @@ const routes = {
 
 	},
 
+	"/issue/*": {
+
+		view: "issue.ejs"
+
+	},
+
 	"/section/*": {
 
 		view: "section.ejs"
+
+	},
+
+	"/issues": {
+
+		view: "issues.ejs"
+
+	},
+
+	"/sections": {
+
+		view: "sections.ejs"
 
 	}
 
@@ -50,6 +80,10 @@ function deslugify (slug) {
 	return decodeURIComponent(slug.replace(/_/g, " "));
 
 }
+
+const PAGE_TEMPLATE = "hzay9p5isjp";
+const POST_TEMPLATE = "yblghp0xq2";
+const PROFILE_TEMPLATE = "p3ebkzveeof";
 
 async function render (view, data) {
 
@@ -98,19 +132,19 @@ async function render (view, data) {
 
 		async comments (element) {
 		
-			return (await (await fetch(`${API_ROOT}/elements`)).json()).filter(_ => _.template.indexOf("comment") !== -1 && _.fields.element === element);
+			return elements.filter(_ => _.template.indexOf("comment") !== -1 && _.fields.element === element);
 
 		},
 
 		async profile (title) {
 
-			return ((await (await fetch(`${API_ROOT}/elements`)).json()).find(_ => _.template === "p3ebkzveeof" && _.fields.title === title) || {fields: {}}).fields;
+			return (elements.find(_ => _.template === PROFILE_TEMPLATE && _.fields.title === title) || {fields: {}}).fields;
 
 		},
 
 		async allPosts () {
 
-			return ((await (await fetch(`${API_ROOT}/elements`)).json())).filter(_ => _.template === "yblghp0xq2");
+			return elements.filter(_ => _.template === POST_TEMPLATE);
 
 		},
 
@@ -127,8 +161,7 @@ async function render (view, data) {
 
 		async fetchElement (title) {
 
-			var json = await (await fetch(`${API_ROOT}/elements`)).json();
-			var element = json.find(_ => _.fields.title.toLowerCase() === title);
+			var element = elements.find(_ => _.fields.title.toLowerCase() === title);
 
 			element.fields._parent = element;
 
@@ -138,8 +171,7 @@ async function render (view, data) {
 
 		async fetchPost (slug) {
 
-			var json = await (await fetch(`${API_ROOT}/elements`)).json();
-			var element = json.find(_ => _.fields.title.toLowerCase() === deslugify(slug));
+			var element = elements.find(_ => _.fields.title.toLowerCase() === deslugify(slug));
 
 			element.fields._parent = element;
 
@@ -150,6 +182,29 @@ async function render (view, data) {
 		file (path) {
 
 			return `${API_ROOT}/file/${path}`;
+
+		},
+
+		async issues () {
+
+			return elements.filter(_ => _.template === PAGE_TEMPLATE && _.fields.title.indexOf("Issue") !== -1).map(_ => {
+
+				_.fields._parent = _;
+				return _.fields;
+
+			});
+
+		},
+
+		async issue (num) {
+
+			return (await this.issues()).find(_ => _.title.startsWith(`Issue ${num}`));
+
+		},
+
+		async sections (num) {
+
+			return new Set((await this.allPosts()).filter(_ => !!_.fields.category).map(_ => _.fields.category.split(",")[0]));
 
 		}
 
@@ -190,16 +245,30 @@ async function load () {
 	if (currentRouteData()) {
 
 		document.body.innerHTML = await render(currentRouteData().view);
+		
+		for (const script of document.body.querySelectorAll("script")) {
+
+			const s = document.createElement("script");
+
+			s.src = script.src;
+
+			script.parentElement.appendChild(s);
+			script.remove();
+
+		}
 
 	} else {
 
 		location.hash = "#/";
+		console.log("Invalid page.");
 
 	}
 
 }
 
-function main () {
+async function main () {
+
+	elements = (await (await fetch(`${API_ROOT}/elements`)).json());
 
 	load();
 

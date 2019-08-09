@@ -1,0 +1,15 @@
+<%- await render("include/menu.ejs") %>
+
+<div class="app">
+
+	<div class="section">
+
+		<h1>Special Thanks</h1>
+
+		<%- (await fetchElement("special thanks")).content %>
+
+	</div>
+
+</div>
+
+<%- await render("include/footer.ejs") %>

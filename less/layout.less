@@ -20,13 +20,21 @@
 
 	&>img {
 
+		opacity: 1;
+
+		pointer-events: all;
+
 		width: 300px;
+
+		transition: 0.2s all;
 
 	}
 
 	&>.items {
 
 		display: inline-block;
+
+		opacity: 1;
 
 		&>* {
 
@@ -35,7 +43,79 @@
 			color: @dark_gray;
 
 		}
+
+		transition: 0.2s all;
 		
+	}
+
+	&>.opener {
+
+		display: inline-block;
+
+		opacity: 0;
+		pointer-events: none;
+
+		font-size: 30px;
+		font-weight: 900;
+
+		cursor: pointer;
+
+		transition: 0.2s all;
+
+	}
+
+	@media only screen and (max-width: @tablet_width) {
+
+		&>img {
+
+			width: 150px;
+
+		}
+
+		&>.items {
+
+			left: 0 !important;
+			
+			opacity: 0;
+
+			pointer-events: none;
+
+			&>* {
+
+				margin-left: 5px;
+
+			}
+
+		}
+
+		&>.opener {
+
+			opacity: 1;
+
+			pointer-events: all;
+
+		}
+
+		&.shown {
+
+			&>img {
+				
+				opacity: 0;
+
+				pointer-events: none;
+
+			}
+
+			&>.items {
+
+				opacity: 1;
+
+				pointer-events: all;
+
+			}
+
+		}
+
 	}
 
 }
@@ -76,6 +156,12 @@ footer {
 				font-style: normal;
 
 			}
+
+		}
+
+		@media only screen and (max-width: @tablet_width) {
+
+			margin-top: 20px;
 
 		}
 
@@ -165,6 +251,28 @@ footer {
 		display: inline-block;
 
 		width: 50%;
+
+	}
+
+	@media only screen and (max-width: @tablet_width) {
+		
+		display: block !important;
+
+		&>* {
+			
+			display: block !important;
+
+			margin-right: 0px !important;
+
+			width: 100% !important;
+
+		}
+
+		&>*:first-child {
+
+			margin-bottom: 50px;
+
+		}
 
 	}
 
@@ -282,6 +390,12 @@ footer {
 
 	}
 
+	@media only screen and (max-width: @tablet_width) {
+		
+		margin-bottom: 60px;
+
+	}
+
 }
 
 .comments {
@@ -334,6 +448,44 @@ footer {
 				display: block;
 
 			}
+
+		}
+
+		@media only screen and (max-width: @tablet_width) {
+		
+			&>* {
+
+				display: block;
+
+			}
+
+			&>div {
+
+				margin-top: 40px;
+
+				width: 100%;
+
+			}
+	
+		}
+
+	}
+
+}
+
+.sections, .issues {
+
+	&>* {
+
+		display: block;
+
+		margin-top: 20px;
+
+		min-height: auto !important;
+
+		&>h2 {
+
+			margin: 0;
 
 		}
 
