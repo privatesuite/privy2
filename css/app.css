@@ -460,11 +460,6 @@ input[type="button"]:hover {
 .hr.bold {
   height: 5.5px;
 }
-.marked {
-  display: inline-block;
-  padding: 2px 5px;
-  background-color: #fca4ca;
-}
 .breadcrum {
   display: block;
   margin-bottom: 10px;
