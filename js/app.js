@@ -71,13 +71,13 @@ const cache = {}
 
 function slugify (slug) {
 
-	return slug.replace(/ /g, "_").toLowerCase();
+	return slug.replace(/ /g, "_").replace(/\//g, "%2F").toLowerCase();
 
 }
 
 function deslugify (slug) {
 
-	return decodeURIComponent(slug.replace(/_/g, " "));
+	return decodeURIComponent(slug.replace(/_/g, " ").replace(/%2F/g, "/"));
 
 }
 
