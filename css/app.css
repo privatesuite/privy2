@@ -448,6 +448,11 @@ input[type="button"]:hover {
   color: #464646;
   font-weight: 900;
 }
+@media only screen and (max-width: 750px) {
+  .authors_cards > div {
+    width: auto;
+  }
+}
 .hr {
   display: block;
   margin-bottom: 20px;

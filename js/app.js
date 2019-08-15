@@ -136,6 +136,12 @@ async function render (view, data) {
 
 		},
 
+		async allProfiles () {
+
+			return elements.filter(_ => _.template === PROFILE_TEMPLATE).map(_ => _.fields);
+
+		},
+
 		async profile (title) {
 
 			return (elements.find(_ => _.template === PROFILE_TEMPLATE && _.fields.title === title) || {fields: {}}).fields;

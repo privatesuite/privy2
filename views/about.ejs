@@ -8,6 +8,30 @@
 
 		<%- (await fetchElement("about")).content %>
 
+		<h2>The Team</h2>
+
+		<div class="authors_cards" style="margin-top: 20px;">
+
+			<% for (const _profile of await allProfiles()) { %>
+
+				<div>
+					
+					<img src="<%- _profile.image ? file(_profile.image) : default_image %>">
+
+					<div>
+
+						<span class="name"><%- _profile.title %></span>
+
+						<p><%- _profile.description || "<i>No description available at this time</i>" %></p>
+
+					</div>
+
+				</div>
+
+			<% } %>
+
+		</div>
+
 	</div>
 
 </div>
