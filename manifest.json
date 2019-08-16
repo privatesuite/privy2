@@ -1,0 +1,18 @@
+{
+
+	"short_name": "Private Suite",
+	"name": "Private Suite Magazine",
+	"icons": [{
+
+		"src": "/img/favicon.png",
+		"type": "image/png",
+		"sizes": "1000x1000"
+
+	}],
+	"start_url": "/#",
+	"display": "standalone",
+	"background_color": "white",
+	"theme_color": "white",
+	"purpose": "any"
+
+}

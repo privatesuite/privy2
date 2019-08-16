@@ -7,7 +7,24 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Private Suite Magazine</title>
 
+	<link rel="icon" href="img/favicon.png" type="image/x-icon">
 	<meta name="description" content="Private Suite is a magazine that covers all thing vaporwave!">
+	<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+	<link rel="preconnect" href="https://privatesuitemag.com" crossorigin="anonymous">
+
+	<link rel="manifest" href="/manifest.json">
+	
+	<!-- iOS -->
+	<link rel="apple-touch-icon" href="/img/favicon.png">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="white">
+
+	<!-- Embeds -->
+	<meta property="og:title" content="Private Suite Magazine">
+	<meta property="og:description" content="Private Suite is a vaporwave magazine publication">
+	<meta property="og:image" content="https://privatesuitemag.com/img/favicon.png">
+	<meta name="twitter:card" content="summary_large_image">
 
 	<link rel="stylesheet" href="/css/app.css">
 
@@ -17,6 +34,23 @@
 <body>
 	
 	<script src="/js/app.js"></script>
+	<script>
+	
+		if ("serviceWorker" in navigator) {
+
+			navigator.serviceWorker.register(location.pathname + "sw.js").then(registration => {
+
+				console.log(`Service worker registration successful with scope "${registration.scope}"`);
+			
+			}, err => {
+				
+				console.error(`Service worker registration failed with error ${err}`);
+			
+			});
+
+		}
+
+	</script>
 
 </body>
 </html>
