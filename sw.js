@@ -8,7 +8,6 @@ var urlsToCache = [
 
 	"/",
 	"/manifest.json",
-	"/api/elements",
 	"/css/app.css",
 	"/js/app.js",
 	

@@ -250,6 +250,7 @@ async function load () {
 
 	if (currentRouteData()) {
 
+		document.title = "Private Suite Magazine";
 		document.body.innerHTML = await render(currentRouteData().view);
 		
 		for (const script of document.body.querySelectorAll("script")) {
@@ -257,6 +258,7 @@ async function load () {
 			const s = document.createElement("script");
 
 			s.src = script.src;
+			s.innerHTML = script.innerHTML;
 
 			script.parentElement.appendChild(s);
 			script.remove();
@@ -274,7 +276,29 @@ async function load () {
 
 async function main () {
 
-	elements = (await (await fetch(`${API_ROOT}/elements`)).json());
+	if (!localStorage.getItem("elements")) {
+		
+		console.log("Loading from API...");
+
+		elements = (await (await fetch(`${API_ROOT}/elements`)).json());
+		localStorage.setItem("elements", LZString.compress(JSON.stringify(elements)));
+
+	} else {
+
+		console.log("Loading from cache...");
+
+		elements = JSON.parse(LZString.decompress(localStorage.getItem("elements")));
+
+		fetch(`${API_ROOT}/elements`).then(async res => {
+
+			console.log("Updating cache...");
+
+			elements = await res.json();
+			localStorage.setItem("elements", LZString.compress(JSON.stringify(elements)));
+
+		});
+
+	}
 
 	load();
 
