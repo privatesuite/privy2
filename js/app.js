@@ -276,29 +276,31 @@ async function load () {
 
 async function main () {
 
-	if (!localStorage.getItem("elements")) {
+	// if (!localStorage.getItem("elements")) {
 		
-		console.log("Loading from API...");
+	// 	console.log("Loading from API...");
 
-		elements = (await (await fetch(`${API_ROOT}/elements`)).json());
-		localStorage.setItem("elements", LZString.compress(JSON.stringify(elements)));
+	// 	elements = (await (await fetch(`${API_ROOT}/elements`)).json());
+	// 	localStorage.setItem("elements", LZString.compress(JSON.stringify(elements)));
 
-	} else {
+	// } else {
 
-		console.log("Loading from cache...");
+	// 	console.log("Loading from cache...");
 
-		elements = JSON.parse(LZString.decompress(localStorage.getItem("elements")));
+	// 	elements = JSON.parse(LZString.decompress(localStorage.getItem("elements")));
 
-		fetch(`${API_ROOT}/elements`).then(async res => {
+	// 	fetch(`${API_ROOT}/elements`).then(async res => {
 
-			console.log("Updating cache...");
+	// 		console.log("Updating cache...");
 
-			elements = await res.json();
-			localStorage.setItem("elements", LZString.compress(JSON.stringify(elements)));
+	// 		elements = await res.json();
+	// 		localStorage.setItem("elements", LZString.compress(JSON.stringify(elements)));
 
-		});
+	// 	});
 
-	}
+	// }
+
+	elements = (await (await fetch(`${API_ROOT}/elements`)).json());
 
 	load();
 
