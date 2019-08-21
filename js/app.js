@@ -232,7 +232,7 @@ async function render (view, data) {
 
 function currentRoute () {
 
-	return location.hash.replace("#", "") ? location.hash.replace("#", "") : "/";
+	return location.hash.replace("#", "") ? (location.hash.replace("#", "").endsWith("/") ? location.hash.replace("#", "").slice(0, -1) : location.hash.replace("#", "")) : "/";
 
 }
 
