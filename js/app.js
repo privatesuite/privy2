@@ -248,6 +248,8 @@ function currentRouteData () {
 
 async function load () {
 
+	console.log(`On ${currentRoute()}`);
+
 	if (currentRouteData()) {
 
 		document.title = "Private Suite Magazine";
@@ -303,7 +305,6 @@ async function main () {
 	elements = (await (await fetch(`${API_ROOT}/elements`)).json());
 
 	// setTimeout(load, 10);
-	console.log(`On ${currentRoute()}`);
 	load();
 
 	document.addEventListener("click", event => {
