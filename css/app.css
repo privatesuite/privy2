@@ -28,7 +28,7 @@
 }
 .issuuembed {
   margin-top: 20px;
-  width: auto !important;
+  width: 100% !important;
   height: 500px !important;
 }
 html,
