@@ -302,7 +302,7 @@ async function main () {
 
 	elements = (await (await fetch(`${API_ROOT}/elements`)).json());
 
-	load();
+	setTimeout(load, 10);
 
 	document.addEventListener("click", event => {
 
