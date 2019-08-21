@@ -302,7 +302,9 @@ async function main () {
 
 	elements = (await (await fetch(`${API_ROOT}/elements`)).json());
 
-	setTimeout(load, 10);
+	// setTimeout(load, 10);
+	console.log(`On ${currentRoute()}`);
+	load();
 
 	document.addEventListener("click", event => {
 
