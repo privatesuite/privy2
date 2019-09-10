@@ -1,4 +1,4 @@
-auto(["/", "/index.html", "/css/(.*)", "/img/(.*)", "/js/(.*)", "/less/(.*)", "/views/(.*)"]);
+auto(["/", "/index.html", "sw.js", "manifest.json", "/css/(.*)", "/img/(.*)", "/js/(.*)", "/less/(.*)", "/views/(.*)"]);
 
 get("/about", (req, res) => {
 
