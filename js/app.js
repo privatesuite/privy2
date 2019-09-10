@@ -310,12 +310,12 @@ async function main () {
 
 	document.addEventListener("click", event => {
 
-		if (event.target.href && event.target.href.startsWith("/")) {
+		if (event.target.href && (event.target.href.startsWith("/") || event.target.href.indexOf(location.origin) !== -1)) {
 
 			history.pushState(null, null, event.target.href);
 			load();
 
-			event.stopPropagation();
+			event.preventDefault();
 			return false;
 
 		}
