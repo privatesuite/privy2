@@ -232,7 +232,8 @@ async function render (view, data) {
 
 function currentRoute () {
 
-	return location.hash.replace("#", "") ? (location.hash.replace("#", "").endsWith("/") && location.hash.replace("#", "").length > 3 ? location.hash.replace("#", "").slice(0, -1) : location.hash.replace("#", "")) : "/";
+	if (location.pathname.replace("/", "")) return location.pathname.replace("/", "");
+	else return location.hash.replace("#", "") ? (location.hash.replace("#", "").endsWith("/") && location.hash.replace("#", "").length > 3 ? location.hash.replace("#", "").slice(0, -1) : location.hash.replace("#", "")) : "/";
 
 }
 
