@@ -1,8 +1,13 @@
-auto(["/", "/index.html", "sw.js", "manifest.json", "/css/(.*)", "/img/(.*)", "/js/(.*)", "/less/(.*)", "/views/(.*)"]);
+auto(["/", "/index.html", "/sw.js", "/manifest.json", "/css/(.*)", "/img/(.*)", "/js/(.*)", "/less/(.*)", "/views/(.*)"]);
 
-get("/about", (req, res) => {
+get("/(about|contact|thanks|privacy|issues|sections)", (req, res) => {
 
 	res.file("index.html");
 
 });
 
+get("/(post|issue|section)/(.*)", (req, res) => {
+
+	res.file("index.html");
+
+});
