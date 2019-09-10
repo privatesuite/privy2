@@ -310,6 +310,16 @@ async function main () {
 
 	document.addEventListener("click", event => {
 
+		if (event.target.href && event.target.href.startsWith("/")) {
+
+			history.pushState(null, null, event.target.href);
+			load();
+
+			event.stopPropagation();
+			return false;
+
+		}
+
 		if (event.target.parentElement && event.target.parentElement.classList.contains("dots")) {
 
 			const index = [...event.target.parentElement.children].indexOf(event.target);
