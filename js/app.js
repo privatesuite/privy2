@@ -259,8 +259,16 @@ async function load () {
 
 	if (currentRouteData()) {
 
-		document.title = "Private Suite Magazine";
-		document.body.innerHTML = await render(currentRouteData().view);
+		try {
+
+			document.title = "Private Suite Magazine";
+			document.body.innerHTML = await render(currentRouteData().view);
+
+		} catch (e) {
+
+			document.body.innerHTML = await render("404.ejs");
+
+		}
 
 	} else {
 
