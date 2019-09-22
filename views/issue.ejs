@@ -8,7 +8,7 @@
 
 		<h1><%- _issue.title %></h1>
 
-		<%- _issue.content %>
+		<%- _issue.content.replace("[PAGE]", currentRoute().split("/")[3] || "1") %>
 
 	</div>
 
