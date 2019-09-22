@@ -60,6 +60,12 @@ const routes = {
 
 		view: "sections.ejs"
 
+	},
+
+	"/404": {
+
+		view: "404.ejs"
+
 	}
 
 }
@@ -71,13 +77,13 @@ const cache = {}
 
 function slugify (slug) {
 
-	return slug.replace(/ /g, "_").replace(/\//g, "%2f").toLowerCase();
+	return slug.replace(/ /g, "_").replace(/\//g, "%2f")/*.replace(/\?/g, "%3f")*/.toLowerCase();
 
 }
 
 function deslugify (slug) {
 
-	return decodeURIComponent(slug.replace(/_/g, " ").replace(/%2f/g, "/"));
+	return decodeURIComponent(slug.replace(/_/g, " ").replace(/%2f/g, "/"))/*.replace(/%3f/g, "?")*/;
 
 }
 
@@ -232,7 +238,7 @@ async function render (view, data) {
 
 function currentRoute () {
 
-	if (location.pathname.replace("/", "")) return location.pathname;
+	if (location.pathname.replace("/", "")) return location.pathname + location.search;
 	else return location.hash.replace("#", "") ? (location.hash.replace("#", "").endsWith("/") && location.hash.replace("#", "").length > 3 ? location.hash.replace("#", "").slice(0, -1) : location.hash.replace("#", "")) : "/";
 
 }
@@ -255,23 +261,26 @@ async function load () {
 
 		document.title = "Private Suite Magazine";
 		document.body.innerHTML = await render(currentRouteData().view);
-		
-		for (const script of document.body.querySelectorAll("script")) {
-
-			const s = document.createElement("script");
-
-			s.src = script.src;
-			s.innerHTML = script.innerHTML;
-
-			script.parentElement.appendChild(s);
-			script.remove();
-
-		}
 
 	} else {
 
-		location.hash = "#/";
+		// location.hash = "#/404";
+
+		document.body.innerHTML = await render("404.ejs");
+
 		console.log("Invalid page.");
+
+	}
+
+	for (const script of document.body.querySelectorAll("script")) {
+
+		const s = document.createElement("script");
+
+		s.src = script.src;
+		s.innerHTML = script.innerHTML;
+
+		script.parentElement.appendChild(s);
+		script.remove();
 
 	}
 
@@ -310,9 +319,11 @@ async function main () {
 
 	document.addEventListener("click", event => {
 
-		if (event.target.href && (event.target.href.startsWith("/") || event.target.href.indexOf(location.origin) !== -1)) {
+		const a = event.target.href ? event.target : event.target.closest("a[href]");
 
-			history.pushState(null, null, event.target.href);
+		if (a.href && (a.href.startsWith("/") || a.href.indexOf(location.origin) !== -1)) {
+
+			history.pushState(null, null, a.href);
 			load();
 
 			event.preventDefault();

@@ -10,6 +10,8 @@ var urlsToCache = [
 	"/manifest.json",
 	"/css/app.css",
 	"/js/app.js",
+	"/js/ejs.min.js",
+	"/api/elements",
 	
 	"/img/favicon.png",
 	"/img/logo_wordmark_blk.svg",
@@ -17,6 +19,7 @@ var urlsToCache = [
 	"/img/social/twitter.svg",
 	"/img/social/youtube.svg",
 	
+	"/views/404.ejs",
 	"/views/about.ejs",
 	"/views/contact.ejs",
 	"/views/index.ejs",
@@ -46,15 +49,15 @@ self.addEventListener("install", event => {
 
 self.addEventListener("fetch", event => {
 
+	if (navigator.onLine) {
+
+		return fetch(event.request);
+
+	}
+
 	event.respondWith(caches.match(event.request).then(response => {
 
-		if (!navigator.onLine && response) {
-		
-			return response;
-		
-		}
-		
-		return fetch(event.request);
+		return response;
 	
 	}));
 

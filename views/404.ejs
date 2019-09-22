@@ -1,0 +1,19 @@
+<%- await render("include/menu.ejs") %>
+
+<% const vaporTitles = ["404: Not found", "This page is... Well... Vapor", "This page has entered the ether", "We're sorry; this page could not be found", "This page has dissolved into a 404", "We have made a severe and continuous lapse in our URL consistency", "404; should've bought the 303", "404 Olives"] %>
+
+<div class="app">
+
+	<div class="section">
+
+		<h1><%- vaporTitles[Math.floor(Math.random() * vaporTitles.length)] %></h1>
+
+		<p>It seems that you've landed on a page that doesn't exist; try using the menu at the top of this page to find an awesome new page to read!</p>
+
+		<p>Hit up <code>aurame</code> on Discord if you think this shouldn't occur.</p>
+
+	</div>
+
+</div>
+
+<%- await render("include/footer.ejs") %>

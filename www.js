@@ -11,3 +11,9 @@ get("/(post|issue|section)/(.*)", (req, res) => {
 	res.file("index.html");
 
 });
+
+get("/(.*)", (req, res) => {
+
+	res.file("index.html");
+
+});
