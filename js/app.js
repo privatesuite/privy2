@@ -367,9 +367,15 @@ async function main () {
 		if (a && a.href && (a.href.startsWith("/") || a.href.indexOf(location.origin) !== -1)) {
 
 			history.pushState(null, null, a.href);
-			load();
-
 			event.preventDefault();
+
+			(async () => {
+
+				await load();
+				window.scrollTo(0, 0);
+
+			})();
+
 			return false;
 
 		}
@@ -388,7 +394,12 @@ async function main () {
 
 	});
 
-	window.addEventListener("hashchange", load);
+	window.addEventListener("hashchange", async () => {
+		
+		await load();
+		window.scrollTo(0, 0);
+		
+	});
 
 }
 
