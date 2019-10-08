@@ -30,6 +30,7 @@ var urlsToCache = [
 	"/views/section.ejs",
 	"/views/sections.ejs",
 	"/views/thanks.ejs",
+	"/views/podcast.ejs",
 	"/views/include/comments.ejs",
 	"/views/include/footer.ejs",
 	"/views/include/menu.ejs"

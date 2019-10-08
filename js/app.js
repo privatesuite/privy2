@@ -1,4 +1,5 @@
 const API_ROOT = `https://${location.hostname}/api`;
+const PODCAST_EPISODES = "https://shows.pippa.io/api/shows/5d9c8ccb34dfd91e4010ff4f/episodes?results=10000";
 
 const routes = {
 
@@ -29,6 +30,18 @@ const routes = {
 	"/privacy": {
 
 		view: "privacy.ejs"
+
+	},
+
+	"/podcast": {
+
+		view: "podcast.ejs"
+
+	},
+
+	"/podcast/*": {
+
+		view: "podcast_listen.ejs"
 
 	},
 
@@ -71,7 +84,8 @@ const routes = {
 }
 
 let elements;
-const cache = {}
+const cache = {};
+let podcastCache = [];
 
 // View
 
@@ -104,6 +118,22 @@ async function render (view, data) {
 		slugify,
 		
 		default_image: "https://icon2.kisspng.com/20180411/ksq/kisspng-vaporwave-statue-aesthetics-seapunk-art-statue-of-liberty-5acdd5c454c0c2.4795892315234390443472.jpg",
+
+		async podcastEpisodes () {
+
+			if (podcastCache.length === 0) podcastCache = (await (await fetch(PODCAST_EPISODES)).json()).results;
+			
+			return podcastCache;
+			
+		},
+
+		async podcastEpisode (id) {
+
+			const episodes = await this.podcastEpisodes();
+
+			return episodes.find(_ => _.audio.filename.replace(".mp3", "").split("/")[1] === id);
+			
+		},
 
 		trim (text, max) {
 
@@ -267,6 +297,7 @@ async function load () {
 		} catch (e) {
 
 			document.body.innerHTML = await render("404.ejs");
+			throw e;
 
 		}
 

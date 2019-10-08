@@ -1,0 +1,31 @@
+<%- await render("include/menu.ejs") %>
+
+<div class="app">
+
+	<div class="section">
+
+		<h1>Podcast</h1> <br>
+
+		<%- (await fetchElement("podcast")).content %>
+
+		<div class="episodes">
+
+			<% for (const episode of (await podcastEpisodes())) { %>
+
+				<a href="/podcast/<%- episode.audio.filename.replace('.mp3', '').split('/')[1] %>" class="panel">
+
+					<img src="<%- episode.cover ? episode.cover.url : 'https://assets.pippa.io/shows/5d9c8ccb34dfd91e4010ff4f/show-cover.jpg' %>" alt="">
+					<h2><%- episode.title %></h2>
+					<%= episode.subtitle || `${episode.summary.replace(/<\/?\w+>/g, '').slice(0, 200)}...` %>
+
+				</a>
+	
+			<% } %>
+
+		</div>
+
+	</div>
+
+</div>
+
+<%- await render("include/footer.ejs") %>

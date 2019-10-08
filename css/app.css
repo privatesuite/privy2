@@ -279,10 +279,40 @@ footer > .social > *:hover {
   display: block;
   margin-top: 20px;
   min-height: auto !important;
+  overflow-wrap: break-word;
 }
 .sections > * > h2,
 .issues > * > h2 {
   margin: 0;
+}
+.episodes {
+  display: flex;
+  flex-wrap: wrap;
+}
+.episodes > * {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 20px;
+  flex-grow: 1;
+  flex-basis: 500px;
+  min-height: auto !important;
+  color: #787878;
+  font-style: normal;
+  overflow-wrap: break-word;
+}
+.episodes > * > h2 {
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.episodes > * > img {
+  width: 25%;
+}
+.podcast_cover {
+  width: 100%;
+}
+.podcast_player {
+  width: 100%;
 }
 * {
   outline: none !important;

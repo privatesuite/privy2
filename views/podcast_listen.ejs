@@ -1,0 +1,33 @@
+<%- await render("include/menu.ejs") %>
+
+<% const episode = await podcastEpisode(currentRoute().split("/")[2]); %>
+
+<div class="app">
+
+	<div class="section">
+
+		<h1><%- episode.title %></h1>
+
+		<div class="split" style="margin-top: 40px;">
+
+			<div>
+
+				<img src="<%- episode.cover ? episode.cover.url : 'https://assets.pippa.io/shows/5d9c8ccb34dfd91e4010ff4f/show-cover.jpg' %>" alt="" class="podcast_cover">
+
+			</div>
+
+			<div>
+
+				<audio class="podcast_player" src="<%- episode.audio.url %>" controls></audio>
+
+				<%- episode.summary %>
+
+			</div>
+		
+		</div>
+
+	</div>
+
+</div>
+
+<%- await render("include/footer.ejs") %>
