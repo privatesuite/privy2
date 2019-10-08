@@ -356,13 +356,15 @@ async function main () {
 	// setTimeout(load, 10);
 	load();
 
+	window.onpopstate = load;
+
 	document.addEventListener("click", event => {
 
 		if (!event.target) return;
 
 		const a = event.target.href ? event.target : event.target.closest("a[href]");
 
-		if (a.href && (a.href.startsWith("/") || a.href.indexOf(location.origin) !== -1)) {
+		if (a && a.href && (a.href.startsWith("/") || a.href.indexOf(location.origin) !== -1)) {
 
 			history.pushState(null, null, a.href);
 			load();
