@@ -285,6 +285,17 @@ footer > .social > *:hover {
 .issues > * > h2 {
   margin: 0;
 }
+.social_buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+.social_buttons > * {
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 20px;
+  flex-grow: 1;
+  flex-basis: 20%;
+}
 .episodes {
   display: flex;
   flex-wrap: wrap;
@@ -292,7 +303,8 @@ footer > .social > *:hover {
 .episodes > * {
   display: inline-block;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   flex-grow: 1;
   flex-basis: 400px;
   min-height: auto !important;
@@ -402,26 +414,35 @@ a {
 input[type="text"],
 textarea {
   margin-bottom: 10px;
-  border: 1px solid #787878;
+  border: 1px solid #9b9b9b;
   border-radius: 1px;
   padding: 10px 17px;
+  color: #9b9b9b;
+  font-style: normal;
   font-family: "Fira Sans";
+  font-weight: 500;
+  text-decoration: none;
   background: transparent;
   transition: 0.2s all;
 }
 input[type="text"]:hover,
 textarea:hover {
   border-color: #464646;
-  border-width: 2px;
+  color: #464646;
 }
 button,
 .btn,
 input[type="submit"],
 input[type="button"] {
+  display: inline-block;
   border: 1px solid #787878;
   border-radius: 1px;
   padding: 10px 17px;
+  color: #787878;
+  font-style: normal;
   font-family: "Fira Sans";
+  font-weight: 500;
+  text-decoration: none;
   background: transparent;
   cursor: pointer;
   transition: 0.2s all;
@@ -431,7 +452,29 @@ button:hover,
 input[type="submit"]:hover,
 input[type="button"]:hover {
   border-color: #464646;
-  border-width: 2px;
+  color: #464646;
+}
+button:hover > *,
+.btn:hover > *,
+input[type="submit"]:hover > *,
+input[type="button"]:hover > * {
+  color: #464646;
+}
+button > *,
+.btn > *,
+input[type="submit"] > *,
+input[type="button"] > * {
+  color: #787878;
+  line-height: normal;
+  vertical-align: middle;
+  transition: 0.2s all;
+}
+button > svg,
+.btn > svg,
+input[type="submit"] > svg,
+input[type="button"] > svg {
+  width: 12px;
+  height: auto;
 }
 .authors {
   margin-top: 20px;

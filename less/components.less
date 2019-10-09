@@ -125,19 +125,24 @@ input[type="text"], textarea {
 
 	margin-bottom: 10px;
 
-	border: 1px solid @gray;
+	border: 1px solid @light_gray;
 	border-radius: @radius;
 
 	padding: @input_padding;
 
+	color: @light_gray;
+	font-style: normal;
 	font-family: @body_font;
+	font-weight: 500;
+	text-decoration: none;
 
 	background: transparent;
 
 	&:hover {
 
 		border-color: @dark_gray;
-		border-width: 2px;
+		
+		color: @dark_gray;
 
 	}
 
@@ -147,19 +152,49 @@ input[type="text"], textarea {
 
 button, .btn, input[type="submit"], input[type="button"] {
 	
+	display: inline-block;
+
 	border: 1px solid @gray;
 	border-radius: @radius;
 
 	padding: @input_padding;
 
+	color: @gray;
+	font-style: normal;
 	font-family: @body_font;
+	font-weight: 500;
+	text-decoration: none;
 
 	background: transparent;
 
 	&:hover {
 
 		border-color: @dark_gray;
-		border-width: 2px;
+		
+		color: @dark_gray;
+
+		&>* {
+
+			color: @dark_gray;
+
+		}
+
+	}
+
+	&>* {
+
+		color: @gray;
+		line-height: normal;
+		vertical-align: middle;
+
+		transition: 0.2s all;
+
+	}
+
+	&>svg {
+
+		width: 12px;
+		height: auto;
 
 	}
 

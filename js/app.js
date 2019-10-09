@@ -293,6 +293,7 @@ async function load () {
 
 			document.title = "Private Suite Magazine";
 			document.body.innerHTML = await render(currentRouteData().view);
+			feather.replace();
 
 		} catch (e) {
 

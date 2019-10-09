@@ -495,6 +495,26 @@ footer {
 
 }
 
+.social_buttons {
+
+	display: flex;
+
+	flex-wrap: wrap;
+
+	&>* {
+
+		display: inline-block;
+
+		margin-top: 20px;
+		margin-right: 20px;
+
+		flex-grow: 1;
+		flex-basis: 20%;
+
+	}
+
+}
+
 .episodes {
 
 	display: flex;
@@ -506,7 +526,8 @@ footer {
 		display: inline-block;
 
 		margin-top: 20px;
-		margin-left: 20px;
+		margin-left: 10px;
+		margin-right: 10px;
 
 		flex-grow: 1;
 		flex-basis: 400px;

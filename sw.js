@@ -11,6 +11,7 @@ var urlsToCache = [
 	"/css/app.css",
 	"/js/app.js",
 	"/js/ejs.min.js",
+	"/js/feather.min.js",
 	"/api/elements",
 	
 	"/img/favicon.png",
