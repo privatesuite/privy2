@@ -20,6 +20,15 @@
 
 				<audio class="podcast_player" src="<%- episode.audio.url %>" controls></audio>
 
+				<br><br>
+
+				<div>
+
+					<a href="<%- episode.cover ? episode.cover.url : 'https://assets.pippa.io/shows/5d9c8ccb34dfd91e4010ff4f/show-cover.jpg' %>" class="btn" target="_blank" download><i data-feather="image"></i> <span>Download Thumbnail</span></a>
+					<a href="<%- episode.audio.url %>" class="btn" target="_blank" download><i data-feather="headphones"></i> <span>Download Audio</span></a>
+
+				</div>
+
 				<div class="podcast_description">
 					
 					<%- episode.summary %>

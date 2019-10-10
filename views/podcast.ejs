@@ -40,7 +40,7 @@
 
 			<% for (const episode of (await podcastEpisodes())) { %>
 
-				<a href="/podcast/<%- episode.audio.filename.replace('.mp3', '').split('/')[1] %>" class="panel">
+				<a href="/podcast/<%- parseInt(episode.title) %>" class="panel">
 
 					<img src="<%- episode.cover ? episode.cover.url : 'https://assets.pippa.io/shows/5d9c8ccb34dfd91e4010ff4f/show-cover.jpg' %>" alt="">
 					<h2><%- episode.title %></h2>

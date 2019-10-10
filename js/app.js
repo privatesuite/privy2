@@ -131,7 +131,7 @@ async function render (view, data) {
 
 			const episodes = await this.podcastEpisodes();
 
-			return episodes.find(_ => _.audio.filename.replace(".mp3", "").split("/")[1] === id);
+			return episodes.find(_ => _.title.startsWith(`${id}.`));
 			
 		},
 
