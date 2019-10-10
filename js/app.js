@@ -365,7 +365,7 @@ async function main () {
 
 		const a = event.target.href ? event.target : event.target.closest("a[href]");
 
-		if (a && a.href && (a.href.startsWith("/") || a.href.indexOf(location.origin) !== -1)) {
+		if (!event.ctrlKey && a && a.href && (a.href.startsWith("/") || a.href.indexOf(location.origin) !== -1)) {
 
 			history.pushState(null, null, a.href);
 			event.preventDefault();

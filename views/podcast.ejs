@@ -4,23 +4,37 @@
 
 	<div class="section">
 
-		<h1>Podcast</h1> <br>
+		<div class="split" style="margin-bottom: 20px;">
 
-		<div class="social_buttons">
+			<div style="margin-bottom: 0px;">
 
-			<a href="https://feed.pippa.io/public/shows/5d9c8ccb34dfd91e4010ff4f" class="btn"><i data-feather="rss"></i> <span>RSS Feed</span></a>
-			<a href="https://itunes.apple.com/us/podcast/private-suite-podcast/id1442031477?mt=2" class="btn"><i data-feather="headphones"></i> <span>Apple Podcasts</span></a>
-			<a href="https://playmusic.app.goo.gl/?ibi=com.google.PlayMusic&isi=691797987&ius=googleplaymusic&apn=com.google.android.music&link=https://play.google.com/music/m/Iph5wtkaugzehoxtw4v7epkiyqy?t%3DPrivate_Suite_Podcast%26pcampaignid%3DMKT-na-all-co-pr-mu-pod-16" class="btn"><i data-feather="headphones"></i> <span>Google Play</span></a>
-			<a href="https://pca.st/5a8t" class="btn"><i data-feather="headphones"></i> <span>Pocket Casts</span></a>
-			<a href="https://open.spotify.com/show/3O73BZdzhDV1wuaTihnkOc?si=NEKSX8-uTha84gXS6oCuBA" class="btn"><i data-feather="headphones"></i> <span>Spotify</span></a>
-			<a href="https://www.stitcher.com/s?fid=329291&refid=stpr" class="btn"><i data-feather="headphones"></i> <span>Stitcher</span></a>
-			<a href="http://tun.in/pjfpM" class="btn"><i data-feather="headphones"></i> <span>TuneIn</span></a>
+				<h1>Podcast</h1> <br>
 
+				<%- (await fetchElement("podcast")).content %>
+
+			</div>
+
+			<div>
+
+				<h2 style="margin-top: 20px;">Listen to us everywhere!</h2>
+
+				<div class="social_buttons">
+
+					<a href="https://feed.pippa.io/public/shows/5d9c8ccb34dfd91e4010ff4f" class="btn"><i data-feather="rss"></i> <span>RSS Feed</span></a>
+					<a href="https://itunes.apple.com/us/podcast/private-suite-podcast/id1442031477?mt=2" class="btn"><i data-feather="headphones"></i> <span>Apple Podcasts</span></a>
+					<a href="https://playmusic.app.goo.gl/?ibi=com.google.PlayMusic&isi=691797987&ius=googleplaymusic&apn=com.google.android.music&link=https://play.google.com/music/m/Iph5wtkaugzehoxtw4v7epkiyqy?t%3DPrivate_Suite_Podcast%26pcampaignid%3DMKT-na-all-co-pr-mu-pod-16" class="btn"><i data-feather="headphones"></i> <span>Google Play</span></a>
+					<a href="https://pca.st/5a8t" class="btn"><i data-feather="headphones"></i> <span>Pocket Casts</span></a>
+					<a href="https://open.spotify.com/show/3O73BZdzhDV1wuaTihnkOc?si=NEKSX8-uTha84gXS6oCuBA" class="btn"><i data-feather="headphones"></i> <span>Spotify</span></a>
+					<a href="https://www.stitcher.com/s?fid=329291&refid=stpr" class="btn"><i data-feather="headphones"></i> <span>Stitcher</span></a>
+					<a href="http://tun.in/pjfpM" class="btn"><i data-feather="headphones"></i> <span>TuneIn</span></a>
+					<a href="https://www.iheart.com/podcast/256-Private-Suite-Podcast-31157632" class="btn"><i data-feather="headphones"></i> <span>iHeart</span></a>
+					<a href="https://player.fm/series/private-suite-podcast" class="btn"><i data-feather="headphones"></i> <span>PlayerFM</span></a>
+
+				</div>
+					
+			</div>
+		
 		</div>
-
-		<br><br>
-
-		<%- (await fetchElement("podcast")).content %>
 
 		<div class="episodes">
 
