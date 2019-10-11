@@ -6,6 +6,13 @@
 
 		<h1>Discover</h1>
 
+		<% if (!Spade) { %>
+
+		<h1>Spade only works when you're connected to the internet!</h1>
+		<h2>Sorry about that</h2>
+
+		<% } else { %>
+
 		<p>Private Suite Discover&trade; is a powerful tool that utilizes the Bandcamp API to deliver very recent vaporwave albums. A great way to discover new artists and subgenres.</p>
 
 		<div class="discover_albums">
@@ -24,6 +31,8 @@
 			<% } %>
 
 		</div>
+
+		<% } %>
 
 	</div>
 
