@@ -14,6 +14,7 @@ get("/(post|issue|section|podcast)/(.*)", (req, res) => {
 
 get("/(.*)", (req, res) => {
 
+	res.status(404);
 	res.file("index.html");
 
 });
