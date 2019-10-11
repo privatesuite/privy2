@@ -1,3 +1,5 @@
+Spade.setProxy("https://cors-anywhere.herokuapp.com/");
+
 const API_ROOT = `https://${location.hostname}/api`;
 const PODCAST_EPISODES = "https://shows.pippa.io/api/shows/5d9c8ccb34dfd91e4010ff4f/episodes?results=10000";
 
@@ -72,6 +74,12 @@ const routes = {
 	"/sections": {
 
 		view: "sections.ejs"
+
+	},
+
+	"/discover": {
+
+		view: "discover.ejs"
 
 	},
 

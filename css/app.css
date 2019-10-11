@@ -338,6 +338,38 @@ footer > .social > *:hover {
   margin-top: 0;
   margin-bottom: 1em;
 }
+.discover_albums {
+  display: flex;
+  flex-wrap: wrap;
+}
+.discover_albums > * {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  flex-grow: 1;
+  flex-basis: 400px;
+  min-height: auto !important;
+  color: #787878;
+  font-style: normal;
+  overflow-wrap: break-word;
+}
+.discover_albums > * > h2 {
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.discover_albums > * > img {
+  width: 25%;
+}
+@media only screen and (max-width: 750px) {
+  .discover_albums > * > h2 {
+    font-size: 14pt;
+  }
+  .discover_albums > * > .subtitle {
+    display: none;
+  }
+}
 * {
   outline: none !important;
 }

@@ -1,0 +1,32 @@
+<%- await render("include/menu.ejs") %>
+
+<div class="app">
+
+	<div class="section">
+
+		<h1>Discover</h1>
+
+		<p>Private Suite Discover&trade; is a powerful tool that utilizes the Bandcamp API to deliver very recent vaporwave albums. A great way to discover new artists and subgenres.</p>
+
+		<div class="discover_albums">
+
+			<% for (const album of (await Spade.getRecentAlbums(100)).sort((a, b) => b.release_date - a.release_date)) { %>
+
+				<a href="<%- album.url %>" class="panel">
+
+					<img src="<%- album.album_cover(16) %>" alt="">
+					<h2><%- album.title %></h2>
+					<h3><%- album.artist %><%- album.location !== 'Unknown' ? ` &bull; ${album.location}` : '' %></h3>
+					<h3><%- album.release_date.toLocaleString() %></h3>
+
+				</a>
+	
+			<% } %>
+
+		</div>
+
+	</div>
+
+</div>
+
+<%- await render("include/footer.ejs") %>
