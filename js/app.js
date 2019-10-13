@@ -139,7 +139,7 @@ async function render (view, data) {
 
 			const episodes = await this.podcastEpisodes();
 
-			return episodes.find(_ => _.title.startsWith(`${id}.`));
+			return episodes.find(_ => ("" + _.episodeNumber) === id);
 			
 		},
 
