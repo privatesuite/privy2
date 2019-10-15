@@ -51,7 +51,7 @@ self.addEventListener("install", event => {
 
 self.addEventListener("fetch", event => {
 
-	if (navigator.onLine || event.request.url.indexOf("/admin") !== -1) {
+	if (navigator.onLine || event.request.url.indexOf("/admin") !== -1 || event.request.url.indexOf("/api/elements") !== -1) {
 
 		return false;
 
