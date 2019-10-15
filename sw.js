@@ -53,6 +53,7 @@ self.addEventListener("fetch", event => {
 
 	if (navigator.onLine || event.request.url.indexOf("/admin") !== -1 || (event.request.url.indexOf("/api/") !== -1 && event.request.url.indexOf("/api/elements") === -1)) {
 
+		console.log(`Cancelling request "${event.request.url}"`);
 		return false;
 
 	}
