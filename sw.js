@@ -51,9 +51,9 @@ self.addEventListener("install", event => {
 
 self.addEventListener("fetch", event => {
 
-	if (navigator.onLine) {
+	if (navigator.onLine || event.request.url.indexOf("/admin") !== -1) {
 
-		return fetch(event.request);
+		return false;
 
 	}
 
